@@ -7,6 +7,20 @@ export const profile = {
   email: "brian.hoogerwerf@specright.com",
 };
 
+export const clients = [
+  { name: "Starbucks", logo: "/logos/starbucks.png" },
+  { name: "Utz", logo: "/logos/utz.svg" },
+  { name: "Woolworths", logo: "/logos/woolworths.svg" },
+  { name: "Bio-Techne", logo: "/logos/bio-techne.svg" },
+  { name: "Ciroos", logo: "/logos/ciroos.svg" },
+  { name: "Concept3D", logo: "/logos/concept3d.png" },
+  { name: "AAFP", logo: "/logos/aafp.svg" },
+  { name: "Fiji Airways", logo: "/logos/fiji-airways.png" },
+  { name: "ISPA", logo: "/logos/ispa.png" },
+  { name: "CFPB", logo: "/logos/cfpb.svg" },
+  { name: "Department of Education", logo: "/logos/dept-of-education.svg" },
+];
+
 export const industries = [
   { name: "Manufacturing", icon: "🏭" },
   { name: "Retail & Consumer Goods", icon: "🛍️" },
