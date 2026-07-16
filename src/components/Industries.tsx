@@ -3,20 +3,20 @@ import SectionHeader from "./SectionHeader";
 
 export default function Industries() {
   return (
-    <section id="industries" className="py-24 px-6 bg-[#f8fafc]">
-      <div className="max-w-6xl mx-auto">
+    <section id="industries" className="py-24 px-6 bg-[#fafafa]">
+      <div className="max-w-5xl mx-auto">
         <SectionHeader
           title="Industries I've Served"
           subtitle="Cross-industry experience that informs every engagement."
         />
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap gap-3">
           {industries.map((ind) => (
             <div
               key={ind.name}
-              className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl px-6 py-4 hover:shadow-sm hover:border-[#0176d3]/30 transition-all"
+              className="flex items-center gap-2.5 bg-white border border-[#e5e5ec] rounded-lg px-5 py-3 text-sm font-medium text-[#202022]"
             >
-              <span className="text-2xl">{ind.icon}</span>
-              <span className="font-medium text-[#032d60]">{ind.name}</span>
+              <span>{ind.icon}</span>
+              {ind.name}
             </div>
           ))}
         </div>

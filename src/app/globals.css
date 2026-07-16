@@ -2,20 +2,19 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1a1a2e;
-  --sf-blue: #0176d3;
-  --sf-dark: #032d60;
-  --sf-light: #e8f4fd;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --section-alt: #f8fafc;
+  --foreground: #202022;
+  --text-secondary: #484850;
+  --text-muted: #c0c0c9;
+  --border: #e5e5ec;
+  --section-alt: #fafafa;
+  --accent: #0176d3;
+  --accent-dark: #032d60;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
 }
 
 html {
@@ -25,10 +24,12 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: var(--sf-blue);
+  background-color: var(--accent);
   color: white;
 }
