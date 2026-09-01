@@ -3,10 +3,12 @@
 import { clients } from "@/data/content";
 import { useState } from "react";
 
-function ClientLogo({ name, logo, large, xlarge }: { name: string; logo: string; large?: boolean; xlarge?: boolean }) {
+function ClientLogo({ name, logo, large, xlarge, xxlarge }: { name: string; logo: string; large?: boolean; xlarge?: boolean; xxlarge?: boolean }) {
   const [failed, setFailed] = useState(false);
 
-  const sizeClass = xlarge
+  const sizeClass = xxlarge
+    ? "h-20 w-auto max-w-[180px] md:h-36 md:max-w-[320px] object-contain"
+    : xlarge
     ? "h-16 w-auto max-w-[140px] md:h-28 md:max-w-[240px] object-contain"
     : large
     ? "h-12 w-auto max-w-[120px] md:h-20 md:max-w-[220px] object-contain"
@@ -36,9 +38,9 @@ export default function ClientLogos() {
         <p className="text-base font-medium text-[#202022] uppercase tracking-widest mb-4">
           Trusted by
         </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-4">
           {clients.map((c) => (
-            <ClientLogo key={c.name} name={c.name} logo={c.logo} large={c.large} xlarge={c.xlarge} />
+            <ClientLogo key={c.name} name={c.name} logo={c.logo} large={c.large} xlarge={c.xlarge} xxlarge={(c as {xxlarge?: boolean}).xxlarge} />
           ))}
         </div>
       </div>

@@ -63,7 +63,7 @@ export default function MoviesPage() {
   const [runtime, setRuntime] = useState("");
   const [streamingOnly, setStreamingOnly] = useState(false);
   const [contentRating, setContentRating] = useState("");
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(true);
   const [allMovies, setAllMovies] = useState<MovieRecommendation[]>([]);
   const [displayCount, setDisplayCount] = useState(6);
   const [loading, setLoading] = useState(false);

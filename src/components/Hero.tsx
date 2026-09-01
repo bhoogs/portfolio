@@ -30,6 +30,13 @@ export default function Hero() {
             >
               LinkedIn
             </a>
+            <a
+              href="/Brian_Hoogerwerf_Resume.pdf"
+              download
+              className="inline-flex items-center justify-center gap-2 bg-[#202022] text-white px-9 py-3 rounded-lg text-sm font-medium hover:bg-[#484850] transition-colors"
+            >
+              Resume
+            </a>
           </div>
         </div>
 

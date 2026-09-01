@@ -5,7 +5,9 @@ import Link from "next/link";
 import { projects } from "@/data/content";
 import SectionHeader from "./SectionHeader";
 
-function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+type CaseStudy = { problem: string; solution: string; impact: string };
+
+function Lightbox({ src, alt, caseStudy, onClose }: { src: string; alt: string; caseStudy?: CaseStudy; onClose: () => void }) {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handler);
@@ -14,7 +16,7 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4 md:p-10"
+      className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4 md:p-8"
       onClick={onClose}
     >
       <button
@@ -23,17 +25,35 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
       >
         ✕
       </button>
-      <img
-        src={src}
-        alt={alt}
-        className="max-w-full max-h-full rounded-xl shadow-2xl"
+      <div
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
-      />
+      >
+        {caseStudy && (
+          <div className="px-8 pt-8 pb-6 grid grid-cols-3 gap-6 border-b border-[#e5e5ec]">
+            {[
+              { label: "Problem", text: caseStudy.problem },
+              { label: "Solution", text: caseStudy.solution },
+              { label: "Impact", text: caseStudy.impact },
+            ].map(({ label, text }) => (
+              <div key={label}>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#0176d3] mb-2">{label}</p>
+                <p className="text-sm text-[#484850] leading-relaxed">{text}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        <img
+          src={src}
+          alt={alt}
+          className="w-full block"
+        />
+      </div>
     </div>
   );
 }
 
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
+function ProjectImage({ src, alt, caseStudy }: { src: string; alt: string; caseStudy?: CaseStudy }) {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -51,11 +71,11 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
             <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg text-2xl">
               🔍
             </div>
-            <span className="text-white text-sm font-semibold drop-shadow">Click to expand</span>
+            <span className="text-white text-sm font-semibold drop-shadow">{caseStudy ? "View case study" : "Click to expand"}</span>
           </div>
         </div>
       </div>
-      {open && <Lightbox src={src} alt={alt} onClose={() => setOpen(false)} />}
+      {open && <Lightbox src={src} alt={alt} caseStudy={caseStudy} onClose={() => setOpen(false)} />}
     </>
   );
 }
@@ -87,7 +107,7 @@ function ProjectCard({ p, index }: { p: typeof projects[number]; index: number }
           )}
         </div>
       </div>
-      <ProjectImage src={p.image} alt={p.title} />
+      <ProjectImage src={p.image} alt={p.title} caseStudy={"caseStudy" in p ? p.caseStudy : undefined} />
     </div>
   );
 }

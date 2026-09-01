@@ -12,13 +12,15 @@ export const clients = [
   { name: "Utz", logo: "/logos/utz.svg", large: true },
   { name: "Woolworths", logo: "/logos/woolworths.png", xlarge: true },
   { name: "Bio-Techne", logo: "/logos/bio-techne.svg" },
-  { name: "Ciroos", logo: "/logos/ciroos.svg" },
+  { name: "AutoZone", logo: "/logos/autozone.png", xlarge: true },
   { name: "Sun Bum", logo: "/logos/sunbum.png", large: true },
   { name: "AAFP", logo: "/logos/aafp.svg" },
   { name: "Fiji Airways", logo: "/logos/fiji-airways.png" },
-  { name: "ISPA", logo: "/logos/ispa.png" },
+  { name: "Eli Lilly", logo: "/logos/eli-lilly.png", large: true },
   { name: "CFPB", logo: "/logos/cfpb.svg" },
   { name: "Department of Education", logo: "/logos/dept-of-education.svg", xlarge: true },
+  { name: "Ciroos", logo: "/logos/ciroos.svg" },
+  { name: "ISPA", logo: "/logos/ispa.png" },
 ];
 
 export const certifications = [
@@ -124,6 +126,11 @@ export const projects = [
     year: "2025",
     image: "/projects/field-inspection-mobile.png",
     category: "client" as const,
+    caseStudy: {
+      problem: "Field quality and inspection reps worked inside facilities with no Wi-Fi access, making it impossible to capture and submit inspection data in real time. Records were delayed, incomplete, or lost entirely.",
+      solution: "Designed and built a Salesforce Mobile Plus application that allows reps to complete full quality and inspection workflows entirely offline. The app queues all data locally and automatically syncs to Salesforce the moment the device reconnects to a network.",
+      impact: "Hundreds of field reps now capture inspection data reliably regardless of connectivity. Data loss was eliminated and inspection records became immediately available to the business upon sync.",
+    },
   },
   {
     title: "Enterprise Project Tracker",
@@ -132,6 +139,11 @@ export const projects = [
     year: "2024",
     image: "/projects/project-tracker.png",
     category: "client" as const,
+    caseStudy: {
+      problem: "A complex packaging artwork process spanning 8 distinct phases, each with its own approval workflows, stakeholders, and timelines, was historically managed through spreadsheets and email chains. With hundreds of projects running simultaneously, there was limited visibility into status, bottlenecks, or accountability.",
+      solution: "Designed and built a Salesforce application to manage the full artwork project lifecycle, structuring each phase with its own workflow, approval routing, and deadline tracking in a single system of record while integrating with an external artwork review platform.",
+      impact: "Hundreds of concurrent packaging projects are now managed with full visibility and structured approval processes, eliminating manual coordination and giving leadership a real-time view across the entire portfolio.",
+    },
   },
   {
     title: "Process Recipe Card",
@@ -140,6 +152,11 @@ export const projects = [
     year: "2024",
     image: "/projects/recipe-card-new.png",
     category: "client" as const,
+    caseStudy: {
+      problem: "Frontline staff had no practical reference for recipe execution at the point of service. The only source of truth was a back-end database, impractical during service, leaving preparation steps and ingredient specifications inconsistently applied across locations.",
+      solution: "Designed and built a Salesforce Lightning Web Component that surfaces structured recipe cards for dozens of products. Step-by-step instructions and ingredient specifications are displayed in a clean, tablet-friendly format for point-of-service lookup, with a printable option where devices aren't available.",
+      impact: "Product preparation is now consistent across all locations, with staff spending less time hunting for information and making fewer errors during service.",
+    },
   },
   {
     title: "What to Watch Dashboard",
