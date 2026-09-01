@@ -18,7 +18,7 @@ export default function Hero() {
           </p>
 
           <p className="text-base text-[#484850] leading-relaxed max-w-md">
-            My current passion is accelerating the development process with Claude Code and integrating AI into various integration workflows.
+            I help organizations build the right team, use AI to move faster, and make confident decisions about how to invest in technology.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 mt-8">
