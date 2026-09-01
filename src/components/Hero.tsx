@@ -10,7 +10,7 @@ export default function Hero() {
             {profile.name}
           </h1>
           <h2 className="text-lg font-medium text-[#484850] mt-2 mb-6">
-            Salesforce Architect
+            Salesforce Leader & Architect
           </h2>
 
           <p className="text-base text-[#484850] leading-relaxed mb-4 max-w-md">
