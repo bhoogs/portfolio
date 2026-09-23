@@ -162,7 +162,7 @@ function parseICS(icsText: string): CalendarEvent[] {
     const parseICSDate = (val: string, allDay: boolean, tz?: string): Date | null => {
       if (!val) return null;
       if (allDay || /^\d{8}$/.test(val))
-        return new Date(`${val.slice(0, 4)}-${val.slice(4, 6)}-${val.slice(6, 8)}T00:00:00`);
+        return new Date(`${val.slice(0, 4)}-${val.slice(4, 6)}-${val.slice(6, 8)}T12:00:00Z`);
       const isoLocal = `${val.slice(0,4)}-${val.slice(4,6)}-${val.slice(6,8)}T${val.slice(9,11)}:${val.slice(11,13)}:${val.slice(13,15)}`;
       if (val.endsWith("Z")) return new Date(isoLocal + "Z");
       return wallClockToUTC(isoLocal, tz ?? "America/Chicago");
