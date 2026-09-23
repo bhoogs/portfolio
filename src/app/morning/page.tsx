@@ -1,4 +1,5 @@
 import Clock from "./Clock";
+import styles from "./morning.module.css";
 
 export const dynamic = "force-dynamic";
 
@@ -328,7 +329,7 @@ export default async function MorningPage() {
   };
 
   return (
-    <div style={{
+    <div className={styles.pageWrapper} style={{
       minHeight: "100vh",
       background: "#f3f4f6",
       padding: "2.5rem",
@@ -343,10 +344,10 @@ export default async function MorningPage() {
       </div>
 
       {/* Grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem", maxWidth: "1200px", alignItems: "start", margin: "0 auto" }}>
+      <div className={styles.grid}>
 
         {/* Weather — 2 columns */}
-        <div style={{ ...card, gridColumn: "span 2" }}>
+        <div className={styles.spanTwo} style={card}>
           <div style={label}>Weather · Wayzata, MN</div>
 
           {weather ? (
@@ -403,7 +404,7 @@ export default async function MorningPage() {
         </div>
 
         {/* Bible — full width */}
-        <div style={{ ...card, gridColumn: "span 3", overflow: "visible" }}>
+        <div className={styles.spanThree} style={{ ...card, overflow: "visible" }}>
           <div style={label}>Bible Reading</div>
           {digest?.bible ? (
             <>
@@ -423,7 +424,7 @@ export default async function MorningPage() {
 
               {/* Passage texts */}
               {digest.bible.passages && (
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem", marginBottom: "1.25rem", borderTop: "1px solid #f3f4f6", paddingTop: "1.25rem" }}>
+                <div className={styles.passagesGrid}>
                   {[
                     { key: "Old Testament", text: digest.bible.passages.ot, ref: digest.bible.ot },
                     { key: "New Testament", text: digest.bible.passages.nt, ref: digest.bible.nt },
@@ -444,7 +445,7 @@ export default async function MorningPage() {
                 const paras = digest.bible.reflection.split(/\n\n+/).filter(Boolean).map(p => p.trim());
                 const labels = ["Context", "Theme", "Today"];
                 return (
-                  <div style={{ borderTop: "1px solid #f3f4f6", paddingTop: "1.25rem", display: "grid", gridTemplateColumns: `repeat(${Math.min(paras.length, 3)}, 1fr)`, gap: "1.5rem" }}>
+                  <div className={styles.reflectionGrid} style={{ gridTemplateColumns: `repeat(${Math.min(paras.length, 3)}, 1fr)` }}>
                     {paras.slice(0, 3).map((para, i) => (
                       <div key={i} style={{ borderLeft: i > 0 ? "1px solid #e5e7eb" : "none", paddingLeft: i > 0 ? "1.5rem" : 0 }}>
                         <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "#d1d5db", marginBottom: "0.5rem" }}>
@@ -467,7 +468,7 @@ export default async function MorningPage() {
         </div>
 
         {/* News — full width, 3 columns inside */}
-        <div style={{ ...card, gridColumn: "span 3" }}>
+        <div className={styles.spanThree} style={card}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "1.25rem" }}>
             <div style={label}>Morning News</div>
             {digest && (
@@ -480,7 +481,7 @@ export default async function MorningPage() {
           {newsSections.length === 0 ? (
             <p style={{ color: "#9ca3af", fontSize: "0.875rem" }}>No digest available yet. Check back after 7:30 AM.</p>
           ) : (
-            <div style={{ display: "grid", gridTemplateColumns: `repeat(${newsSections.length}, 1fr)`, gap: "2rem" }}>
+            <div className={styles.newsColumnsGrid} style={{ gridTemplateColumns: `repeat(${newsSections.length}, 1fr)` }}>
               {newsSections.map((section, si) => (
                 <div key={si} style={{ borderLeft: si > 0 ? "1px solid #e5e7eb" : "none", paddingLeft: si > 0 ? "2rem" : 0 }}>
                   <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "#3b82f6", marginBottom: "1rem" }}>
